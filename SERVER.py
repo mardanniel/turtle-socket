@@ -4,35 +4,6 @@
 import socket
 import turtle
 
-# Socket Receiver
-
-def serverRun(connection, screen):
-    while True:
-        clientMsg = connection.recv(1024)
-        print("SERVER FEED >: ",clientMsg.hex())
-        if clientMsg.hex() == "77":     #W
-            tforward()
-        elif clientMsg.hex() == "73":   #S
-            tbackward()
-        elif clientMsg.hex() == "61":   #A
-            tleft()
-        elif clientMsg.hex() == "64":   #D
-            tright()
-
-        #   KEY PRESS ON DESKTOP     || SENDING COMMANDS ON MOBILE
-        elif clientMsg.hex() == "48" or clientMsg.hex() == "5550":   #Up Arrow Key
-            tincrease()
-        elif clientMsg.hex() == "50" or clientMsg.hex() == "444f574e":   #Down Arrow Key
-            tdecrease()
-        elif clientMsg.hex() == "4b" or clientMsg.hex() == "4c454654":   #Left Arrow Key
-            tcolorLeft()
-        elif clientMsg.hex() == "4d" or clientMsg.hex() == "5249474854":   #Right Arrow Key
-            tcolorRight()
-        elif clientMsg.hex() == "1b" or clientMsg.hex() == "455343":   #Escape
-            texit()
-            break
-        screen.update()
-
 # Socket Connection
 
 serv = socket.socket()
@@ -111,6 +82,36 @@ def texit():
     servScreen.bye()
     serv.close()
     connA.close()
+    
+# Socket Receiver
+
+def serverRun(connection, screen):
+    while True:
+        clientMsg = connection.recv(1024)
+        print("SERVER FEED >: ",clientMsg.hex())
+        if clientMsg.hex() == "77":     #W
+            tforward()
+        elif clientMsg.hex() == "73":   #S
+            tbackward()
+        elif clientMsg.hex() == "61":   #A
+            tleft()
+        elif clientMsg.hex() == "64":   #D
+            tright()
+
+        #   KEY PRESS ON DESKTOP     || SENDING COMMANDS ON MOBILE
+        elif clientMsg.hex() == "48" or clientMsg.hex() == "5550":   #Up Arrow Key
+            tincrease()
+        elif clientMsg.hex() == "50" or clientMsg.hex() == "444f574e":   #Down Arrow Key
+            tdecrease()
+        elif clientMsg.hex() == "4b" or clientMsg.hex() == "4c454654":   #Left Arrow Key
+            tcolorLeft()
+        elif clientMsg.hex() == "4d" or clientMsg.hex() == "5249474854":   #Right Arrow Key
+            tcolorRight()
+        elif clientMsg.hex() == "1b" or clientMsg.hex() == "455343":   #Escape
+            texit()
+            break
+        screen.update()
+
 
 serverRun(connA, servScreen)
 
