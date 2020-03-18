@@ -31,7 +31,7 @@ def clientRun(connection):
                 print("CLIENT KEY >: ", keyFeed, "Esc")
                 print("CLIENT : Connection Terminated!")
                 break
-            print("CLIENT KEY >: ", keyFeed, keyFeed.decode())
+            print("CLIENT KEY >: ", keyFeed)
 
 
 clientRun(clie)
