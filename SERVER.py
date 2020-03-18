@@ -36,7 +36,7 @@ def serverRun(connection, screen):
 # Socket Connection
 
 serv = socket.socket()
-servHost = 'PUT-YOUR-IP-HERE'
+servHost = 'PUT-SERVER-IP-HERE'
 servPort = 8000
 serv.bind((servHost, servPort))
 serv.listen()
