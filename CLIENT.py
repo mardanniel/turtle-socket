@@ -8,7 +8,7 @@ import msvcrt
 # Socket Connection
 
 clie = socket.socket()
-clie.connect(('192.168.100.13', 8000))
+clie.connect(('-PUT-SERVER-IP-HERE-', 8000))
 print("CLIENT : Connected to: ",clie.getsockname())
 
 # Socket Sender
