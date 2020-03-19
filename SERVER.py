@@ -7,6 +7,17 @@ import turtle
 # Socket Connection
 
 serv = socket.socket()
+# To know the SERVER IP to be used,
+# OPEN Command Prompt and enter ipconfig /all
+
+# If your SERVER is connected WIRELESSLY to ROUTER, 
+# Head over to Wireless LAN adapter Wifi,
+# and copy the IPv4 address
+
+# If your SERVER is connected through Ethernet adapter (using RJ45 cable) to ROUTER, 
+# Head over to Ethernet adapter Ethernet,
+# and copy the IPv4 address
+
 servHost = 'PUT-SERVER-IP-HERE'
 servPort = 8000
 serv.bind((servHost, servPort))
