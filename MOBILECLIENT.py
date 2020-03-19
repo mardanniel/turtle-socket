@@ -15,6 +15,20 @@ print("CLIENT: Connected to: ",clie.getsockname())
 def clientRun(connection):
     while True:
         try:
+            #To send w,a,s,d character keys to SERVER, just type
+            #w for forward
+            #a for left
+            #s for backward
+            #d for right
+            #Ex. SERVER: w
+            #NOTE: Capital character keys doesnt qualify
+            #To send special keys to SERVER, just type
+            #UP for 
+            #DOWN for backward
+            #LEFT for left
+            #RIGHT for right
+            #ESC for escape
+            #Ex. SERVER: UP
             clieMsg = input("SERVER: ")
             connection.send(clieMsg.encode())
             print("SERVER: ",clieMsg)
